@@ -85,10 +85,12 @@
       emailInput.placeholder = "Email";
       passwordInput.placeholder = "Password";
       document.querySelector('.Web_Auth_with_firebase').classList.add('inactive');
+      document.querySelector('.PushNotifications').classList.remove('inactive');
     }
     else { //upon login, call the following lines of code
       logout.classList.add('inactive');
       document.querySelector('.Web_Auth_with_firebase').classList.remove('inactive');
+      document.querySelector('.PushNotifications').classList.add('inactive');
       document.querySelector('.userName').textContent = "";
     }
     console.log(firebaseUser); //for debugging purposes
@@ -98,9 +100,22 @@
 // SECTION 3: "Push Notifications"
 //------------------------------------------------------------------------------
 
+  const pushPage = document.querySelector('.PushNotifications');
+  pushPage.classList.add('inactive');
+
   const messaging = firebase.messaging();
   messaging.requestPermission().then(function() {
     console.log('has permission');
+    return messaging.getToken();
+  }).then(function(token) { //ERROR: doesn't send a token on a static page
+    console.log(token); //normally send to server to send message to that token later (FCM API with this token)
   }).catch(function(err) {
     console.log('denied permission with error: ' + err);
   });
+
+  messaging.onMessage(function(payload) {
+    console.log("On Message: " + payload);
+  });
+
+//If closed, service worker receives the push Notification
+//If open, web server receives the push Notification
