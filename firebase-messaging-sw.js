@@ -14,3 +14,30 @@ var config = {
   messagingSenderId: "846642053775"
 };
 firebase.initializeApp(config);
+
+//------------------------------------------------------------------------------
+// PUSH NOTIFICATION HANDLING
+//------------------------------------------------------------------------------
+
+const messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler(function(message) {
+  console.log('triggered!');
+  const title = "Title";
+  const options = {
+    body: message.data.status
+  }
+  return self.registration.showNotification(title, options);
+});
+
+// TESTING PUSH VIA WEB INSPECTOR / APPLICATION
+// self.addEventListener('push', function(event) {
+//   console.log('[Service Worker] Push Received.');
+//   console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+//
+//   const title = 'Push Codelab';
+//   const options = {
+//     body: 'Yay it works.'
+//   };
+//
+//   event.waitUntil(self.registration.showNotification(title, options));
+// });

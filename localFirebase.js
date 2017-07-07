@@ -97,7 +97,7 @@
   });
 
 //------------------------------------------------------------------------------
-// SECTION 3: "Push Notifications"
+// SECTION 3: "Push Notifications" For Web
 //------------------------------------------------------------------------------
 
   const pushPage = document.querySelector('.PushNotifications');
