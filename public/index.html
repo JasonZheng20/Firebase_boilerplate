@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Firebase Boilerplate</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+    <!-- This should link to the online firebase scripts -->
+    <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js" defer></script>
+    <!-- This is our local firebase javascript -->
+    <script src= "localFirebase.js" defer></script>
+  </head>
+  <body>
+    <div class = "banner">
+      <span class = "shift">Firebase Web Push Boilerplate</span>
+    </div>
+    <button id = "logout">Log Out</button>
+    <h3 class = "userName"></h3>
+    <section class = "Synchronize_textContent_with_firebase inactive">
+      <div class = "tag">Sample Firebase Display</div>
+      <div class = "sample"></div>
+      <div class = "descr">Change "text" field in Firebase</div>
+    </section>
+    <section class = "Web_Auth_with_firebase">
+      <div class = "interface">
+        <input id = "email" type = "email" class = "inputClass" placeholder = "Email"></input>
+        <input id = "password" type = "password" class = "inputClass" placeholder = "Password"></input>
+        <div class = "buttonContainer">
+          <button id = "login">Log In</button>
+          <button id = "signup">Sign Up</button>
+        </div>
+      </div>
+    </section>
+    <section class = "PushNotifications">
+      <div class = "interface">
+        <h5 class = "instructions">Populate the text field below with Push Notification content</h5>
+        <input type = "text" class = "paragraphRes"></input>
+        <h5 class = "instructions">Select users to send push notifications to</h5>
+        <!-- grid type thing -->
+        <button id = "submit">Send Push Notifications</button>
+      </div>
+    </section>
+  </body>
+</html>
