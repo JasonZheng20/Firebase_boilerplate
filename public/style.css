@@ -5,10 +5,6 @@ Sample Styles
   display: none !important;
 }
 
-.uselessTest {
-  display: none;
-}
-
 body {
   margin: 0px;
   font-family: 'Nunito', sans-serif;
